@@ -1,0 +1,104 @@
+.header {
+  height: 36vw;
+  margin: 30px auto;
+  position: relative;
+  overflow: hidden; /* Ensure the video covers the entire header */
+  margin-top: 85px;
+}
+
+.header-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire header */
+  z-index: -1; /* Place the video behind the contents */
+  border-radius: 60px;
+  padding: 5px;
+}
+
+.header-contents {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.5vw;
+  max-width: 50%;
+  bottom: 10%;
+  left: 6vw;
+  animation: fadeIn 4s;
+}
+
+ 
+
+.header-contents h2 {
+  font-weight: 600;
+  color: white;
+  font-size: max(4vw, 22px);
+}
+
+.header-contents p {
+  color: white;
+  font-size: 1.2vw;
+}
+ 
+
+.header-contents button {
+  border: none;
+  color: #34571a;
+  font-weight: 500;
+  padding: 1vw 2.3vw;
+  background-color: white;
+  font-size: max(1vw, 13px);
+  border-radius: 50px;
+}
+
+@media (max-width: 1050px) {
+  .header-contents {
+    max-width: 45%;
+  }
+  .header-video {
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-contents {
+    max-width: 45%;
+  }
+  .header-video {
+    border-radius: 30px;
+  }
+
+  .header-contents p {
+    display: none;
+  }
+  .header-contents button {
+    padding: 1.5vw 1.5vw;
+    width: 90px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    height: 45vw;
+  }
+  .header-contents h2 {
+    font-size: max(2vw, 17px);
+  }
+
+  .header-contents {
+    max-width: 45%;
+  }
+  .header-video {
+    border-radius: 20px;
+  }
+  .header-contents p {
+    display: none;
+  }
+  .header-contents button {
+    padding: 1.5vw 1.5vw;
+    width: 80px;
+  }
+}

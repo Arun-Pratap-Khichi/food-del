@@ -1,0 +1,117 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative; /* For absolute positioning of scroll slider */
+    padding: 10px;
+  }
+  
+  .explore-menu h1 {
+    color: #34571a;
+    font-weight: 600;
+  }
+  
+  .explore-menu-text {
+    max-width: 55%;
+    color: black;
+  }
+  
+  .explore-menu-list {
+    display: flex;
+    justify-content: flex-start; /* Adjust to start for infinite scroll appearance */
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 20px 0px;
+    overflow-x: auto;
+    scroll-behavior: smooth; /* Smooth scroll behavior */
+    white-space: nowrap; /* Prevent wrapping of items */
+  }
+  
+  .explore-menu-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for aesthetic purposes */
+  }
+  
+  .explore-menu-list img {
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 10px;
+  }
+  
+  .explore-menu-list-item .active {
+    padding: 15px;
+  }
+  
+  .explore-menu hr {
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #af7a1fa1;
+    border: none;
+  }
+  
+  .scroll-slider {
+    position: absolute;
+    top: 110px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .scroll-btn {
+    background-color: #f49619;
+    border: none;
+    color: white;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50px;
+  }
+  
+  @media (max-width: 1050px) {
+    .explore-menu-text {
+      max-width: 80%;
+      font-size: 14px;
+    }
+    .scroll-btn {
+      font-size: 14px;
+      padding: 4px 9px;
+    }
+    .scroll-slider {
+      top: 120px;
+      right: 10px;
+    }
+  }
+  
+  @media (max-width: 750px) {
+    .explore-menu-text {
+      max-width: 80%;
+      font-size: 13px;
+    }
+    .scroll-btn {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+    .scroll-slider {
+      top: 120px;
+      right: 1px;
+    }
+  }
+  
+  @media (max-width: 460px) {
+    .explore-menu-text {
+      max-width: 80%;
+      font-size: 12px;
+    }
+    .scroll-btn {
+      font-size: 12px;
+      padding: 3px 7px;
+    }
+    .scroll-slider {
+      top: 180px;
+      right: 1px;
+    }
+  }
+  
