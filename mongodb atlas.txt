@@ -1,4 +1,0 @@
-mongodb atlas
-mail - arunbana612@gmail.com
-username - arunbana
-pass-  Arun@1234
