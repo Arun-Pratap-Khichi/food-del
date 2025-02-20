@@ -11,8 +11,8 @@ const [cartItems, setCartItems] = useState({});
 const [token,setToken] = useState("");
 const [food_list,setFoodlist] = useState([]);
 
-//const url = "http://localhost:1200"
-const url = "https://food-del-two-delta.vercel.app";
+const url = "http://localhost:1200"
+//const url = "https://food-del-two-delta.vercel.app";
 console.log("url ha ",url)
 
 const addToCart = async (itemId) => {
@@ -47,10 +47,10 @@ const removeFromCart = async(itemId) => {
     return totalAmount;
  }
 
-//  const fetchFoodList = async () => {
-//   const response = await axios.get(url+"/api/food/list"); 
-//     setFoodlist(response.data.data); 
-//  };
+ const fetchFoodList = async () => {
+  const response = await axios.get(url+"/api/food/list"); 
+    setFoodlist(response.data.data); 
+ };
 
  const loadCartData = async (token) => {
     const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
