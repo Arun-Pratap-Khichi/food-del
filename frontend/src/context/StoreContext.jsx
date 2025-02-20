@@ -12,7 +12,7 @@ const [token,setToken] = useState("");
 const [food_list,setFoodlist] = useState([]);
 
 //const url = "http://localhost:1200"
-const url = "https://food-del-blond.vercel.app";
+const url = "https://food-del-two-delta.vercel.app";
 console.log("url ha ",url)
 
 const addToCart = async (itemId) => {
