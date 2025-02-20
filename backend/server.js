@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { connectDB } from "./config/db.js"
-import foodRouter from "./routes/foodRoute.js"
+//import foodRouter from "./routes/foodRoute.js"
 import userRouter from "./routes/userRoute.js"
 import cartRouter from "./routes/cartRoute.js"
 import "dotenv/config";
@@ -16,7 +16,8 @@ const port = 1200
 app.use(express.json())
  app.use(cors(
   {
-    orgin:"https://frontend-theta-eosin-95.vercel.app"
+    orgin:"https://frontend-theta-eosin-95.vercel.app",
+    credentials:true
   }
  
  ))
@@ -41,7 +42,7 @@ connectDB();
 
 
  // api endpoints
- app.use("/api/food",foodRouter)
+ //app.use("/api/food",foodRouter)
  app.use("/images",express.static('uploads'))
  app.use("/api/user",userRouter)
  app.use("/api/cart",cartRouter)
