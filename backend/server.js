@@ -16,7 +16,7 @@ const port = 1200
 app.use(express.json())
  app.use(cors(
   {
-    orgin:process.env.frontend_url
+    orgin:"https://frontend-theta-eosin-95.vercel.app"
   }
  
  ))
