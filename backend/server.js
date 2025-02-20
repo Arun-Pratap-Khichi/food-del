@@ -14,12 +14,24 @@ const port = 1200
 
 // middleware 
 app.use(express.json())
- app.use(cors(
-  {
-    orgin:process.env.frontend_url
-  }
+//  app.use(cors(
+//   {
+//     orgin:process.env.frontend_url
+//   }
  
- ))
+//  ))
+
+import cors from "cors";
+
+app.use(
+  cors({
+    origin: "https://frontend-theta-eosin-95.vercel.app", // Allow your frontend
+    credentials: true, // Allow cookies/auth headers
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
+  })
+);
+
 
 
 
