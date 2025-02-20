@@ -11,7 +11,9 @@ const [cartItems, setCartItems] = useState({});
 const [token,setToken] = useState("");
 const [food_list,setFoodlist] = useState([]);
 
-const url = "http://localhost:1200"
+//const url = "http://localhost:1200"
+const url = import.meta.env.VITE_BACKEND_URL;
+console.log("url ha ",url)
 
 const addToCart = async (itemId) => {
     
