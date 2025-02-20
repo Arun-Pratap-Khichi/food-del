@@ -14,7 +14,10 @@ const port = 1200
 
 // middleware 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin:process.env.frontend_url,
+  credentials:true
+}))
 
 
 // db connnection
