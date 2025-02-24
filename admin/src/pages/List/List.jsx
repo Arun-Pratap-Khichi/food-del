@@ -10,6 +10,7 @@ const [list,setList] = useState([]);
 
 const fetchList = async () => {
   const response = await axios.get(`${url}/api/food/list`);
+  
   console.log(response.data);
   if(response.data.success){
     setList(response.data.data)
@@ -22,6 +23,7 @@ const fetchList = async () => {
 useEffect(()=>{
   fetchList();
 },[]);
+console.log("whichi one is",list);
 
 const removeFood = async(foodId) => {
   const response = await axios.post(`${url}/api/food/remove`,{id:foodId})
@@ -35,7 +37,7 @@ const removeFood = async(foodId) => {
   }
 }
 
-
+ 
   return (
     <div className='list add flex-col'>
       <p>All Foods List</p>
@@ -50,7 +52,10 @@ const removeFood = async(foodId) => {
         {list.map((item,index) =>{
           return(
             <div key={index} className="list-table-format">
-              <img src={`${url}/images/`+item.image}  alt="" />
+          
+              <img src={item.image}  alt="" />
+             
+             
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>₹{item.price}</p>

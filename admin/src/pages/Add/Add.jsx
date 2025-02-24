@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const Add = ({url}) => {
  
-  const [image, setImage] = useState(false)
+  const [file, setfile] = useState(false)
   const [data, setData] = useState({
     name:"",
     description:'',
@@ -34,7 +34,7 @@ useEffect(()=>{
     formData.append("description",data.description)
     formData.append("price",Number(data.price))
     formData.append("category",data.category)
-    formData.append("image",image)
+    formData.append("file",file)
 
     
     const response = await axios.post(`${url}/api/food/add`,formData);
@@ -45,7 +45,7 @@ useEffect(()=>{
     price:"",
     category:"Salad"
   })
-  setImage(false)
+  setfile(false)
   toast.success(response.data.message)
     }
     else{
@@ -61,9 +61,9 @@ useEffect(()=>{
       <div className="add-img-upload flex-col">
         <p>Upload Image</p>
         <label htmlFor="image">
-          <img src={image?URL.createObjectURL(image):assets.upload_area} alt="" />
+          <img src={file?URL.createObjectURL(file):assets.upload_area} alt="" />
         </label>
-        <input onChange={(e)=>setImage(e.target.files[0])} type="file" id='image' hidden required />
+        <input onChange={(e)=>setfile(e.target.files[0])} type="file" id='image' hidden required />
       </div>
       <div className="add-product-name flex-col">
         <p>Product name</p>

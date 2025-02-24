@@ -16,25 +16,11 @@ const port = 1200
 app.use(express.json())
  app.use(cors(
   {
-    orgin:"https://frontend-theta-eosin-95.vercel.app",
+    orgin:process.env.frontend_url,
     credentials:true
   }
  
  ))
-
-
-
-// app.use(
-//   cors({
-//     origin: "https://frontend-theta-eosin-95.vercel.app", // Allow your frontend
-//     credentials: true, // Allow cookies/auth headers
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
-//   })
-// );
-
-
-
 
 
 // db connnection
@@ -42,8 +28,8 @@ connectDB();
 
 
  // api endpoints
- //app.use("/api/food",foodRouter)
- app.use("/images",express.static('uploads'))
+ app.use("/api/food",foodRouter)
+ //app.use("/images",express.static('uploads'))
  app.use("/api/user",userRouter)
  app.use("/api/cart",cartRouter)
  app.use("/api/order",orderRouter)
@@ -59,7 +45,4 @@ app.listen(port,()=>
     console.log(`server started on http://localhost:${port}`)
 })
 
-
-// mongodb atlas project link
-//     mongodb+srv://arunbana:Arun@1234@cluster0.mabvy.mongodb.net/?
-
+ 

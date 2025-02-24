@@ -1,4 +1,4 @@
- import React from 'react'
+import React from 'react'
   import './index.css'
  import Navbar from './components/Navbar/Navbar'
  import Sidebar from './components/Sidebar/Sidebar'
@@ -12,7 +12,8 @@
 
  const App = () => {
  
-  const url = "http://localhost:1200";
+ 
+  const url = import.meta.env.VITE_URL;
 
    return (
      <div> 
@@ -33,4 +34,3 @@
  
 
  export default App;
- 

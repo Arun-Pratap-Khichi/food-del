@@ -1,7 +1,18 @@
 import { createContext, useEffect, useState} from "react"; 
 import axios from "axios" 
+ 
 
+const url = import.meta.env.VITE_URL;
 
+// export const fetchFoodList = async () => {
+//     try {
+//         const response = await fetch(`${API_URL}/food/list`);
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.error("Error fetching food list:", error);
+//     }
+// };
 
 export const StoreContext = createContext(null);
 const StoreContextProvider = (props) =>{
@@ -11,10 +22,7 @@ const [cartItems, setCartItems] = useState({});
 const [token,setToken] = useState("");
 const [food_list,setFoodlist] = useState([]);
 
-//const url = "http://localhost:1200"
-const url = "https://food-del-two-delta.vercel.app";
-
-console.log("url ha ",url)
+ 
 
 const addToCart = async (itemId) => {
     
@@ -39,19 +47,23 @@ const removeFromCart = async(itemId) => {
 
  const getTotalCartAmount = (itemId)=> {
     let totalAmount =0;
+    console.log("cart details ha",cartItems)
     for(const item in cartItems)
     {  
         if(cartItems[item]>0)
       {  let itemInfo = food_list.find((product)=> product._id === item);
-        totalAmount +=itemInfo.price * cartItems[item];}
+        console.log("itemifo",itemInfo)
+        console.log("item info ha",itemInfo.price)
+        totalAmount +=itemInfo.price * cartItems[item];
+    }
     }
     return totalAmount;
  }
 
-//  const fetchFoodList = async () => {
-//   const response = await axios.get(url+"/api/food/list"); 
-//     setFoodlist(response.data.data); 
-//  };
+ const fetchFoodList = async () => {
+  const response = await axios.get(url+"/api/food/list"); 
+    setFoodlist(response.data.data); 
+ };
 
  const loadCartData = async (token) => {
     const response = await axios.post(url+"/api/cart/get",{},{headers:{token}});
@@ -90,5 +102,4 @@ return (
 )
 }
 export default StoreContextProvider;
-
  
