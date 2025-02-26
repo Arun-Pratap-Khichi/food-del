@@ -4,15 +4,15 @@ import axios from "axios"
 
 const url = import.meta.env.VITE_URL;
 
-// export const fetchFoodList = async () => {
-//     try {
-//         const response = await fetch(`${API_URL}/food/list`);
-//         const data = await response.json();
-//         return data;
-//     } catch (error) {
-//         console.error("Error fetching food list:", error);
-//     }
-// };
+export const fetchFoodList = async () => {
+    try {
+        const response = await fetch(`${url}/food/list`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching food list:", error);
+    }
+};
 
 export const StoreContext = createContext(null);
 const StoreContextProvider = (props) =>{
