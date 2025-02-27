@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState} from "react"; 
 import axios from "axios" 
- 
 
+
+// Example: src/api.js
 const url = import.meta.env.VITE_URL;
 
 export const fetchFoodList = async () => {
@@ -20,9 +21,7 @@ const StoreContextProvider = (props) =>{
 const [cartItems, setCartItems] = useState({});
 
 const [token,setToken] = useState("");
-const [food_list,setFoodlist] = useState([]);
-
- 
+const [food_list,setFoodlist] = useState([]); 
 
 const addToCart = async (itemId) => {
     
@@ -44,21 +43,27 @@ const removeFromCart = async(itemId) => {
         await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
     }
 }
+ 
+    const getTotalCartAmount = () => {
+    let totalAmount = 0; 
+    console.log("Cart details:", cartItems);
 
- const getTotalCartAmount = (itemId)=> {
-    let totalAmount =0;
-    console.log("cart details ha",cartItems)
-    for(const item in cartItems)
-    {  
-        if(cartItems[item]>0)
-      {  let itemInfo = food_list.find((product)=> product._id === item);
-        console.log("itemifo",itemInfo)
-        console.log("item info ha",itemInfo.price)
-        totalAmount +=itemInfo.price * cartItems[item];
-    }
-    }
+    // Iterate over cartItems and calculate the total amount
+    Object.entries(cartItems).forEach(([itemId, quantity]) => {
+        if (quantity > 0) {
+            const itemInfo = food_list.find((product) => product._id === itemId);
+            
+            if (itemInfo) {
+                totalAmount += itemInfo.price * quantity;
+            } else {
+                console.warn(`Item with ID ${itemId} not found in the food list.`);
+            }
+        }
+    });
+
     return totalAmount;
- }
+};
+
 
  const fetchFoodList = async () => {
   const response = await axios.get(url+"/api/food/list"); 
