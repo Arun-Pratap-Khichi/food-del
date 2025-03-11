@@ -10,8 +10,7 @@ const addFood = async (req,res) =>{
 
         //let image_filename = ${req.file.filename};
  let featuredImage = ''
-        if (req.file) {
-            console.log("file print kar rha hu",req.file)
+        if (req.file) { 
             // Upload an image
             const uploadResult = await cloudinary.uploader
                 .upload(
