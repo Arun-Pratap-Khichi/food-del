@@ -7,9 +7,9 @@ const Footer = () => {
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.log} alt="" />
+          <img src={assets.log1} alt="" />
           <p>
-            At Zaikaa, we’re dedicated to delivering hot, fresh, and delicious
+            At EatRush, we’re dedicated to delivering hot, fresh, and delicious
             local meals right to your door. Whether you're craving comfort food
             or something new, our quick and reliable service ensures you get the
             best dining experience at home.
@@ -33,12 +33,12 @@ const Footer = () => {
           <h2>GET IN TOUCH</h2>
           <ul>
             <li>+91-6261862132</li>
-            <li>contactus@zaikaa.com</li>
+            <li>contactus@EatRush.com</li>
           </ul>
         </div>
       </div>
       <hr />
-      <p className="footer-copyright">© 2025 Zaikaa. All Rights Reserved.</p>
+      <p className="footer-copyright">© 2025 EatRush. All Rights Reserved.</p>
     </div>
   );
 };

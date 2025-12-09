@@ -13,7 +13,7 @@ const Header = () => {
         <p>
           Craving a hearty meal? Experience the perfect blend of taste and
           convenience with our rapid delivery service. Indulge in deliciousness
-          <br /> - order with Zaikaa today!
+          <br /> - order with EatRush today!
         </p>
         <button>View Menu</button>
       </div>
